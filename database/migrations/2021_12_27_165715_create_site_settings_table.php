@@ -19,6 +19,8 @@ class CreateSiteSettingsTable extends Migration
             $table->string('phone');
             $table->text('address');
             $table->integer('shipping_cost')->unsigned()->default(100);
+            $table->integer('client_id')->unsigned()->default(2);
+            $table->string('client_secret');
             $table->timestamps();
         });
     }
