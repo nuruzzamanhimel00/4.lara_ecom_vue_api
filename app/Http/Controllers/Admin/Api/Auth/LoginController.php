@@ -56,4 +56,27 @@ class LoginController extends Controller
         ]);
 
     }
+
+    public function accessToken(Request $request){
+        $http = new Client();
+        $accessToken = $request->accessToken;
+        $response = $http->request('GET', url("/api/user"), [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer '.$accessToken,
+            ],
+        ]);
+
+        return response()->json([
+
+            'status' => "success",
+            'data' => json_decode((string) $response->getBody(), true)
+        ]);
+    }
+
+
+
+
+
+
 }
