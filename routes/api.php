@@ -21,6 +21,13 @@ Route::group(['prefix'=>'admin','namespace'=>"Admin\Api\Auth"], function(){
 
     Route::post('login', 'LoginController@login')->name('admin.login');
     Route::post('access-token', 'LoginController@accessToken')->name('admin.access.token');
+
+
+});
+Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
+
+    // Product
+    Route::apiResource('product', 'Product\ProductController');
 });
 
 // Route::get('admin/login', 'Admin\Api\Auth\LoginController@index')->name('admin.login');
