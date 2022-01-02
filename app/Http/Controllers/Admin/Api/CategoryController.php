@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Api\Product;
+namespace App\Http\Controllers\Admin\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ProductCategory;
 use Image;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+
+        $category = ProductCategory::all();
+        return response()->json([
+            'status' => "success",
+            'data' => $category
+        ]);
     }
 
     /**
@@ -57,10 +62,6 @@ class ProductController extends Controller
         // save image in desired format
         if($img->save($image_save)){
 
-            // return response()->json([
-            //     $imageurl
-            // ]);
-
             $addProductCat = ProductCategory::create([
                 'name' => $request->name,
                 'image' => $imagename,
@@ -71,11 +72,6 @@ class ProductController extends Controller
                 ]);
             }
         }
-
-
-
-
-
     }
 
     /**
