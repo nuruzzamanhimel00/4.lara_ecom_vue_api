@@ -171,14 +171,17 @@ class CategoryController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $category = ProductCategory::where('id',$id)->first();
+        if(File::exists(public_path('image/admin/products/'.$category->image))) {
+            File::delete(public_path('image/admin/products/'.$category->image));
+        }
+        if($category->delete()){
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }
     }
 }
