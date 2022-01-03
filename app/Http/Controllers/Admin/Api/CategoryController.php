@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ProductCategory;
+use Illuminate\Support\Facades\File;
 use Image;
 
 class CategoryController extends Controller
@@ -17,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $category = ProductCategory::all();
+        $category = ProductCategory::orderBy('id','desc')->get();
         return response()->json([
             'status' => "success",
             'data' => $category
@@ -82,7 +83,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = ProductCategory::where('id',$id)->first();
+        return response()->json([
+            'status' => "success",
+            'data' => $category
+        ]);
     }
 
     /**
@@ -105,7 +110,65 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $this->validate($request, [
+        //     'name' => 'required|unique:product_categories',
+        //     // 'image' => 'required',
+        // ]);
+
+        // return response()->json([
+        //     $request->all(), $id
+        // ]);
+
+        $image = $request->image;
+        $category = ProductCategory::where('id',$id)->first();
+
+        if($category->image != $image ){
+
+
+            if(File::exists(public_path('image/admin/products/'.$category->image))) {
+                File::delete(public_path('image/admin/products/'.$category->image));
+            }
+               // data:image/png;
+            $strpos = strpos($image,';');
+            $substr = substr($image,0,$strpos);
+            $image_ext = substr(strrchr($substr,'/'),1);
+
+
+            $imagename = $request->name."_".rand().".".$image_ext;
+            $image_save = public_path('image/admin/products/'.$imagename);
+
+            // open an image file
+            $img = Image::make($request->image);
+
+            // save image in desired format
+            if($img->save($image_save)){
+
+                $udtProductCat = ProductCategory::where('id',$id)->update([
+                    'name' => $request->name,
+                    'image' => $imagename,
+                ]);
+                if(isset($udtProductCat)){
+                    return response()->json([
+                        'status' => 'success'
+                    ]);
+                }
+            }
+        }else{
+               // data:image/png;
+               $udtProductCat = ProductCategory::where('id',$id)->update([
+                'name' => $request->name,
+
+                ]);
+                if(isset($udtProductCat)){
+                    return response()->json([
+                        'status' => 'success'
+                    ]);
+                }
+        }
+
+
+
+
     }
 
     /**
