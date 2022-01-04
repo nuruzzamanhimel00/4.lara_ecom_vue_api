@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\ProductCategory;
+use App\ProductBrand;
 use Illuminate\Support\Facades\File;
 use Image;
 
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +17,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
-        $category = ProductCategory::orderBy('id','desc')->get();
+        $brands = ProductBrand::orderBy('id','desc')->get();
         return response()->json([
             'status' => "success",
-            'data' => $category
+            'data' => $brands
         ]);
     }
 
@@ -43,11 +42,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // return response()->json([
+        //     $request->all()
+        // ]);
         $this->validate($request, [
-            'name' => 'required|unique:product_categories',
-            'categoryImage' => 'required',
+            'name' => 'required|unique:product_brands',
+            'image' => 'required',
         ]);
-        $image = $request->categoryImage;
+        $image = $request->image;
         // data:image/png;
         $strpos = strpos($image,';');
         $substr = substr($image,0,$strpos);
@@ -55,19 +57,19 @@ class CategoryController extends Controller
 
 
         $imagename = $request->name."_".rand().".".$image_ext;
-        $image_save = public_path('image/admin/products/'.$imagename);
+        $image_save = public_path('image/admin/products/brands/'.$imagename);
 
         // open an image file
-        $img = Image::make($request->categoryImage);
+        $img = Image::make($request->image);
 
         // save image in desired format
         if($img->save($image_save)){
 
-            $addProductCat = ProductCategory::create([
+            $addBrand = ProductBrand::create([
                 'name' => $request->name,
                 'image' => $imagename,
             ]);
-            if(isset($addProductCat)){
+            if(isset($addBrand)){
                 return response()->json([
                     'status' => 'success'
                 ]);
@@ -83,10 +85,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = ProductCategory::where('id',$id)->first();
+        $brnad = ProductBrand::where('id',$id)->first();
         return response()->json([
             'status' => "success",
-            'data' => $category
+            'data' => $brnad
         ]);
     }
 
@@ -120,13 +122,13 @@ class CategoryController extends Controller
         // ]);
 
         $image = $request->image;
-        $category = ProductCategory::where('id',$id)->first();
+        $brand = ProductBrand::where('id',$id)->first();
 
-        if($category->image != $image ){
+        if($brand->image != $image ){
 
 
-            if(File::exists(public_path('image/admin/products/'.$category->image))) {
-                File::delete(public_path('image/admin/products/'.$category->image));
+            if(File::exists(public_path('image/admin/products/brands/'.$brand->image))) {
+                File::delete(public_path('image/admin/products/brands/'.$brand->image));
             }
                // data:image/png;
             $strpos = strpos($image,';');
@@ -135,7 +137,7 @@ class CategoryController extends Controller
 
 
             $imagename = $request->name."_".rand().".".$image_ext;
-            $image_save = public_path('image/admin/products/'.$imagename);
+            $image_save = public_path('image/admin/products/brands/'.$imagename);
 
             // open an image file
             $img = Image::make($request->image);
@@ -143,11 +145,11 @@ class CategoryController extends Controller
             // save image in desired format
             if($img->save($image_save)){
 
-                $udtProductCat = ProductCategory::where('id',$id)->update([
+                $udtBrand = ProductBrand::where('id',$id)->update([
                     'name' => $request->name,
                     'image' => $imagename,
                 ]);
-                if(isset($udtProductCat)){
+                if(isset($udtBrand)){
                     return response()->json([
                         'status' => 'success'
                     ]);
@@ -155,11 +157,11 @@ class CategoryController extends Controller
             }
         }else{
                // data:image/png;
-               $udtProductCat = ProductCategory::where('id',$id)->update([
+               $udtBrand = ProductBrand::where('id',$id)->update([
                 'name' => $request->name,
 
                 ]);
-                if(isset($udtProductCat)){
+                if(isset($udtBrand)){
                     return response()->json([
                         'status' => 'success'
                     ]);
@@ -167,18 +169,21 @@ class CategoryController extends Controller
         }
 
 
-
-
     }
 
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
-        $category = ProductCategory::where('id',$id)->first();
-        if(File::exists(public_path('image/admin/products/'.$category->image))) {
-            File::delete(public_path('image/admin/products/'.$category->image));
+        $brnad = ProductBrand::where('id',$id)->first();
+        if(File::exists(public_path('image/admin/products/brands/'.$brnad->image))) {
+            File::delete(public_path('image/admin/products/brands/'.$brnad->image));
         }
-        if($category->delete()){
+        if($brnad->delete()){
             return response()->json([
                 'status' => 'success'
             ]);

@@ -29,6 +29,7 @@ Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
     // Product
     Route::apiResource('product', 'ProductController');
     Route::apiResource('category', 'CategoryController');
+    Route::apiResource('brand', 'BrandController');
 });
 
 // Route::get('admin/login', 'Admin\Api\Auth\LoginController@index')->name('admin.login');
