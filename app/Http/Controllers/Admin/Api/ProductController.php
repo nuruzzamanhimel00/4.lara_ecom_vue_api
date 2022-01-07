@@ -14,14 +14,14 @@ use App\Library\AcccessToken;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $products = Products::with(['category','brand','user','productStatus','images'])->orderBy("id",'desc')->get();
+        return response()->json([
+            'status' => "success",
+            'data' => $products
+        ]);
     }
 
     public function getProductStatus(){
@@ -80,7 +80,7 @@ class ProductController extends Controller
             $substr = substr($image,0,$strpos);
             $image_ext = substr(strrchr($substr,'/'),1);
 
-            $imagename = $request->name."_".rand().".".$image_ext;
+            $imagename = str_slug($request->title)."_".rand().".".$image_ext;
             $image_save = public_path('image/admin/products/product_items/'.$imagename);
 
              // open an image file
