@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductStatus extends Model
 {
-    //
+    protected $guarded=[""];
 }
