@@ -62,7 +62,7 @@ class ProductController extends Controller
 
 
         $product_create_get_id = DB::table('products')->insertGetId([
-            "userid" => $request->adminAuthId,
+            "userid" => $request->userid,
             "categoryId" => $request->categoryId,
             "brandId" => $request->brandId,
             "title" => $request->title,
@@ -168,14 +168,14 @@ class ProductController extends Controller
                 'status' => 'success'
             ]);
         }else{
-            $emptyArray = [];
+            // $emptyArray = [];
             foreach($diff_array as $da){
                 if(File::exists(public_path('image/admin/products/product_items/'.$da))) {
                     File::delete(public_path('image/admin/products/product_items/'.$da));
                 }
                 $productImageDelete = ProductImage::where('product_id',$request->id)
                 ->where('image',$da)->delete();
-                $emptyArray[] = $da;
+                // $emptyArray[] = $da;
 
             }
 
@@ -224,6 +224,18 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-
+        $productDelete = DB::table('products')->where('id',$id)->delete();
+        if($productDelete){
+            $productImageget = ProductImage::where('product_id',$id)->get();
+            foreach($productImageget as $key => $value){
+                if(File::exists(public_path('image/admin/products/product_items/'.$value->image))) {
+                    File::delete(public_path('image/admin/products/product_items/'.$value->image));
+                }
+                $value->delete();
+            }
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }
     }
 }
