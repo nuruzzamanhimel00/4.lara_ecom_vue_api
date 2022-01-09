@@ -32,6 +32,7 @@ Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
     Route::apiResource('brand', 'BrandController');
 
     Route::get('product-status', 'ProductController@getProductStatus');
+    Route::get('products', 'ProductController@getAllProducts');
 
 });
 

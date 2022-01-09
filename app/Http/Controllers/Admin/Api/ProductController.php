@@ -25,6 +25,16 @@ class ProductController extends Controller
             'data' => $products
         ]);
     }
+    public function getAllProducts(Request $request)
+    {
+        $products = Products::with(['category','brand','user','productStatus','images'])
+        ->orderBy("id",'desc')
+        ->paginate(4);
+        return response()->json([
+            'status' => "success",
+            'data' => $products
+        ]);
+    }
 
     public function getProductStatus(){
         $getProductStatus = ProductStatus::get();
