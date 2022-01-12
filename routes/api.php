@@ -30,9 +30,12 @@ Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
     Route::apiResource('product', 'ProductController');
     Route::apiResource('category', 'CategoryController');
     Route::apiResource('brand', 'BrandController');
+    Route::apiResource('slider', 'SliderController');
 
     Route::get('product-status', 'ProductController@getProductStatus');
     Route::get('products', 'ProductController@getAllProducts');
+    Route::get('slider-lastprority', 'SliderController@lastprority');
+    Route::get('slider-status', 'SliderController@sliderStatus');
 
 });
 
