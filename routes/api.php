@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+// Route::apiResource('/userslider', 'Fontend\Api\SliderController');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -38,5 +40,16 @@ Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
     Route::get('slider-status', 'SliderController@sliderStatus');
 
 });
+Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
+
+    Route::apiResource('slider', 'SliderController');
+
+});
+
+
+
+// Route::group(['namespace'=>'Fontend\Api'],function(){
+//     Route::apiResource('slider', 'SliderController');
+// });
 
 // Route::get('admin/login', 'Admin\Api\Auth\LoginController@index')->name('admin.login');
