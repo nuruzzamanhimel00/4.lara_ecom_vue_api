@@ -32,6 +32,7 @@ Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
     Route::apiResource('product', 'ProductController');
     Route::apiResource('category', 'CategoryController');
     Route::apiResource('brand', 'BrandController');
+
     Route::apiResource('slider', 'SliderController');
 
     Route::get('product-status', 'ProductController@getProductStatus');
@@ -39,10 +40,15 @@ Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
     Route::get('slider-lastprority', 'SliderController@lastprority');
     Route::get('slider-status', 'SliderController@sliderStatus');
 
+    Route::get('category-withproductcount', 'CategoryController@catWithProductCount');
+    Route::get('brand-withProductCount', 'BrandController@barndWithProductCount');
+
 });
 Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
 
     Route::apiResource('slider', 'SliderController');
+    Route::apiResource('product', 'ProductController');
+    Route::get('products-paginate', 'ProductController@getAllProductsPaginate');
 
 });
 

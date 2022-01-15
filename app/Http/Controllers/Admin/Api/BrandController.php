@@ -23,6 +23,14 @@ class BrandController extends Controller
             'data' => $brands
         ]);
     }
+    public function barndWithProductCount()
+    {
+        $brands = ProductBrand::withCount(['brands'])->orderBy('id','desc')->get();
+        return response()->json([
+            'status' => "success",
+            'data' => $brands
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.

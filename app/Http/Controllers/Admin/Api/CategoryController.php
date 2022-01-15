@@ -25,6 +25,16 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function catWithProductCount()
+    {
+
+        $category = ProductCategory::withCount(['products'])->orderBy('id','desc')->get();
+        return response()->json([
+            'status' => "success",
+            'data' => $category
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
