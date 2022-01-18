@@ -8,7 +8,7 @@ class ProductBrand extends Model
 {
     protected $guarded = [""];
 
-    public function brands()
+    public function brnadproducts()
     {
         return $this->hasMany('App\Products','brandId','id');
     }
