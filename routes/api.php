@@ -53,7 +53,9 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     //brand
     Route::get('brand/{brandid}', 'BrandController@brandByBrandid');
     Route::get('brnadsProducts/{brandid}', 'BrandController@getBrandsProducts');
-
+    //category
+    Route::get('category/{catid}', 'CategoryController@getCetegoryByCatid');
+    Route::get('categoryProducts/{catid}', 'CategoryController@getCategoryWiseProducts');
 
 });
 
