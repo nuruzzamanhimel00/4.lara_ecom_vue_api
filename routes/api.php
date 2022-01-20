@@ -57,6 +57,9 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     Route::get('category/{catid}', 'CategoryController@getCetegoryByCatid');
     Route::get('categoryProducts/{catid}', 'CategoryController@getCategoryWiseProducts');
 
+    //auth
+    Route::post('registration', 'Auth\AuthController@registration');
+
 });
 
 
