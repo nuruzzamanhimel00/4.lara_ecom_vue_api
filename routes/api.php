@@ -61,6 +61,8 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     Route::post('registration', 'Auth\AuthController@registration');
     Route::post('login', 'Auth\AuthController@login');
     Route::post('access-token', 'Auth\AuthController@accessToken');
+    // fontend user profile
+    Route::post('profile-update', 'UserProfileController@userProfileUpdate');
 
 });
 
