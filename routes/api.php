@@ -59,6 +59,8 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
 
     //auth
     Route::post('registration', 'Auth\AuthController@registration');
+    Route::post('login', 'Auth\AuthController@login');
+    Route::post('access-token', 'Auth\AuthController@accessToken');
 
 });
 
