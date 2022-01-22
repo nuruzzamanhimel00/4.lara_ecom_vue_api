@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use File;
+use Illuminate\Support\Facades\Hash;
 use Image;
 
 class UserProfileController extends Controller
@@ -81,5 +82,37 @@ class UserProfileController extends Controller
         return response()->json([
              $user
         ]);
+    }
+
+    public function userChangePassword(Request $request){
+        $this->validate($request, [
+            'password' => 'required',
+            'oldpassword' => 'required',
+        ]);
+
+        $user = User::find($request->id);
+
+        if(Hash::check($request->oldpassword,$user->password)){
+
+            $passUpdate = $user->update([
+                'password' => Hash::make($request->password)
+            ]);
+            if($passUpdate){
+                return response()->json([
+                    'status' => 'success'
+                ]);
+            }
+
+        }else{
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
+
+
+
+    //     return response()->json([
+    //         $request->all()
+    //    ]);
     }
 }

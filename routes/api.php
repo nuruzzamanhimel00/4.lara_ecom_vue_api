@@ -63,6 +63,10 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     Route::post('access-token', 'Auth\AuthController@accessToken');
     // fontend user profile
     Route::post('profile-update', 'UserProfileController@userProfileUpdate');
+    Route::post('change-password', 'UserProfileController@userChangePassword');
+    //fontend cart
+    Route::post('add-cart', 'CartController@addCart');
+    Route::post('fetch-cart', 'CartController@fetchCart');
 
 });
 
