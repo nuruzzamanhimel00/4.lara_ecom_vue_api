@@ -67,6 +67,8 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     //fontend cart
     Route::post('add-cart', 'CartController@addCart');
     Route::post('fetch-cart', 'CartController@fetchCart');
+    Route::post('update-cart-quantity', 'CartController@updateCartQuantity');
+    Route::get('delete-cart/{id}', 'CartController@deleteCart');
 
 });
 

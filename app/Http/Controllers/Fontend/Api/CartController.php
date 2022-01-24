@@ -82,11 +82,11 @@ class CartController extends Controller
 
         if(!is_null($userid)){
 
-            $countCarts = Cart::where('userid',$userid)
+            $countCarts = Cart::with(['productImages','product'])->where('userid',$userid)
             ->whereNull('order_id')
             ->get();
         }else{
-            $countCarts = Cart::where('ip_address',$ip)
+            $countCarts = Cart::with(['productImages','product'])->where('ip_address',$ip)
             ->whereNull('order_id')
             ->get();
         }
@@ -95,6 +95,34 @@ class CartController extends Controller
             'status' => 'success',
             'data' =>$countCarts
         ]);
+    }
+
+    public function updateCartQuantity(Request $request){
+
+        if($request->quantity <= 0){
+            return response()->json([
+                'status' => 'error',
+            ]);
+        }
+
+        $updateCartQuantity = Cart::where('id',$request->id)->update([
+            'product_quantity' => $request->quantity
+        ]);
+        if($updateCartQuantity){
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }
+
+    }
+
+    public function deleteCart($id){
+        $deleteCart = Cart::where('id',$id)->delete();
+        if($deleteCart){
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }
     }
 
 
