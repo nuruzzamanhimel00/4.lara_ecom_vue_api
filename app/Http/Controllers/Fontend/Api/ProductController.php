@@ -36,6 +36,16 @@ class ProductController extends Controller
             'data' => $products
         ]);
     }
+    public function productShow( $slug)
+    {
+        $product = Products::with(['category','brand','images'])
+                    ->where('slug',$slug)->first();
+
+        return response()->json([
+            'status' => "success",
+            'data' => $product
+        ]);
+    }
 
     public function getProductStatus(){
         $getProductStatus = ProductStatus::get();
@@ -53,6 +63,7 @@ class ProductController extends Controller
             'data' => $brand
         ]);
     }
+
 
 
     public function create()

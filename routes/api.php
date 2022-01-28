@@ -50,6 +50,9 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     Route::apiResource('product', 'ProductController');
     Route::get('products-paginate', 'ProductController@getAllProductsPaginate');
 
+    Route::get('products-show/{slug}', 'ProductController@productShow');
+
+
     //brand
     Route::get('brand/{brandid}', 'BrandController@brandByBrandid');
     Route::get('brnadsProducts/{brandid}', 'BrandController@getBrandsProducts');
