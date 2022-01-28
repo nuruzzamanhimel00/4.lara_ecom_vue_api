@@ -46,6 +46,28 @@ class ProductController extends Controller
             'data' => $product
         ]);
     }
+    public function productSearch(Request $request){
+        // return response()->json([
+        //     // 'status' => "success",
+        //     'data' => $request->all()
+        // ]);
+        $search = $request->search;
+        $products = Products::with(['category','brand','images'])
+                    ->where(function($query) use($search){
+                        $query->where('title','like','%'.$search.'%')
+                       ->orWhere('description','like','%'.$search.'%')
+                       ->orWhere('slug','like','%'.$search.'%');
+                    })->get();
+        // if(count($products) <= 0){
+        //     $products = Products::with(['category','brand','images'])
+        //     ->get();
+        // }
+
+        return response()->json([
+            'status' => "success",
+            'data' => $products
+        ]);
+    }
 
     public function getProductStatus(){
         $getProductStatus = ProductStatus::get();

@@ -51,7 +51,7 @@ Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
     Route::get('products-paginate', 'ProductController@getAllProductsPaginate');
 
     Route::get('products-show/{slug}', 'ProductController@productShow');
-
+    Route::post('products-search', 'ProductController@productSearch');
 
     //brand
     Route::get('brand/{brandid}', 'BrandController@brandByBrandid');
