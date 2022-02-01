@@ -73,9 +73,9 @@ class CartController extends Controller
             }
 
         }
-    //     return response()->json([
-    //         $request->all()
-    //    ]);
+        //     return response()->json([
+        //         $request->all()
+        //    ]);
     }
 
     public function fetchCart(Request $request){
