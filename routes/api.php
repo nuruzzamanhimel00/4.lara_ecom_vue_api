@@ -19,11 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 Route::group(['prefix'=>'admin','namespace'=>"Admin\Api\Auth"], function(){
 
     Route::post('login', 'LoginController@login')->name('admin.login');
     Route::post('access-token', 'LoginController@accessToken')->name('admin.access.token');
-
 
 });
 Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
