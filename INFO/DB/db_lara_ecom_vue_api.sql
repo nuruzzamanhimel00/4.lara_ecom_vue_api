@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 01, 2022 at 02:41 PM
+-- Generation Time: Feb 21, 2022 at 10:31 PM
 -- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -138,34 +138,48 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('17edc17a1ab3086bac12a7dce7038e6d49393c53dad8bb5e0a54e717264ebc5bfe78d91991a24228', 1, 2, NULL, '[]', 0, '2021-12-30 11:08:51', '2021-12-30 11:08:51', '2022-12-30 17:08:51'),
 ('19e31898100b0aafa0d40cbaef330ee9df3bbebf86b27db3573ccca2c90b2fb5a96826021368702d', 4, 2, NULL, '[]', 0, '2022-01-20 21:32:33', '2022-01-20 21:32:33', '2023-01-21 03:32:33'),
 ('1e9f4cd0c8b06985b070d1be4518fba4af0a50cf70fe658088db63fb442144fcb67abc5edbd05e63', 4, 2, NULL, '[]', 0, '2022-01-30 08:55:39', '2022-01-30 08:55:39', '2023-01-30 14:55:39'),
+('2683f3144768ae865d584663470693269702077fa87a2d7d8cdb7b40821dc5babb7ea0929354021e', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 11:35:46', '2022-02-17 11:35:46', '2023-02-17 17:35:46'),
 ('276d2d700966336629365ad807d45883eb7223ca6839d685e3b33250cd8ce23bd9cd077c74b6b304', 4, 2, NULL, '[]', 0, '2022-01-22 09:03:35', '2022-01-22 09:03:35', '2023-01-22 15:03:35'),
 ('33ae34b06336c0cc1532179a684a4afeba87860cde751333a6681e43d6a80a1c8b976481a7c1f6b1', 4, 2, NULL, '[]', 0, '2022-01-21 07:20:29', '2022-01-21 07:20:29', '2023-01-21 13:20:29'),
 ('391dea959346eb2f05ddb0c23e179fb29bbc70bc8ac8438ca99e90192f565e6a0110bca7a356ebf4', 1, 2, NULL, '[]', 0, '2021-12-31 10:02:07', '2021-12-31 10:02:07', '2022-12-31 16:02:07'),
 ('3cd3892670a0cbe5ae57c0437e0d0796d155c2f0f2344c6d302018fac6ee7c55bded263fdfaeebd6', 1, 2, NULL, '[]', 0, '2021-12-31 00:50:16', '2021-12-31 00:50:16', '2022-12-31 06:50:16'),
+('3f987486c10540298a2cc2efc13480652151b38a9ab290042efe1f9622e1fbc21213488e4c7e3b55', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:40:22', '2022-02-17 10:40:22', '2023-02-17 16:40:22'),
 ('4b4e72eb23da8bf09e7a62db764ae0121482f67c29f641d38e0e455ee6cf4eace8559c726457e4e4', 1, 2, NULL, '[]', 0, '2021-12-30 11:06:59', '2021-12-30 11:06:59', '2022-12-30 17:06:59'),
+('4b758c0c52f8af81cc2dc73401d53572a3ec50a243794752991cbafb2a77e746594ef8f33db5eab2', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:45:39', '2022-02-17 10:45:39', '2023-02-17 16:45:39'),
+('4c51e347d343585621bc6bb342afa8a18fa9f2b140b0da80648a88946c4f2355b8602fd51b6cfae8', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:44:25', '2022-02-17 10:44:25', '2023-02-17 16:44:25'),
 ('4e7f2c1f949163454047756441f3e2ab87585700deb771253501a3ce75340dc89a7b056501afcddb', 1, 2, NULL, '[]', 0, '2021-12-31 00:49:12', '2021-12-31 00:49:12', '2022-12-31 06:49:12'),
 ('5229cb1a49862b4d677dd691f968bc1f18be32200af243940edcf38999d0fb7501bd65d7de6014b6', 1, 2, NULL, '[]', 0, '2022-01-01 09:59:46', '2022-01-01 09:59:46', '2023-01-01 15:59:46'),
 ('5b38dad5520c50223c51c2f30a40eea43cda2d7ec161a4562cdf39e04f55e7bad26a9537ab0c8da5', 1, 2, NULL, '[]', 0, '2021-12-30 11:06:12', '2021-12-30 11:06:12', '2022-12-30 17:06:12'),
 ('5c0b624b97d1495cce361c2baf027c06e419a4063af95e961d9c26e767edfd959c1e298e4613a3bf', 4, 2, NULL, '[]', 0, '2022-01-22 08:15:08', '2022-01-22 08:15:08', '2023-01-22 14:15:08'),
+('65d023c4c33f7fb9859ddcd71fed9105d5d2bdd5c7bc13d905623a7ea9a68fa9ba026b7c85b04ae0', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:34:55', '2022-02-17 10:34:55', '2023-02-17 16:34:55'),
 ('6db17f1106885db8ce33c383c88f8049291cf7f840c4fc06e6d0d686a727b3694abc347a225ecdc2', 1, 2, NULL, '[]', 0, '2021-12-30 11:06:34', '2021-12-30 11:06:34', '2022-12-30 17:06:34'),
 ('6f400f07bfe173e6f5d78c8a29f590bcd421f2e7bd45fffde2a9f42f4fa3c876aa1cb55d12179ab6', 4, 2, NULL, '[]', 0, '2022-01-23 08:11:20', '2022-01-23 08:11:20', '2023-01-23 14:11:20'),
 ('72057b270fd5f3e4d57559d1b9a20b0ee178c2c7a0de8e7969ce2b152437f0a26e0791eb2161888c', 4, 2, NULL, '[]', 0, '2022-01-20 17:35:52', '2022-01-20 17:35:52', '2023-01-20 23:35:52'),
+('735f82abda6c18a4a698ec959c90f3ab148c1e5d5db585623ccffe7b47b3a987a06770d6e3f9ef0f', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 11:35:08', '2022-02-17 11:35:08', '2023-02-17 17:35:08'),
 ('73958ba242cce439621a6efd66bf5bccd678285f5609ae5ec834fa039d22fad959974b779d1ff841', 4, 2, NULL, '[]', 0, '2022-01-20 17:39:12', '2022-01-20 17:39:12', '2023-01-20 23:39:12'),
 ('79289bdbd9f4681d07e2e3b5af76d5c52a4ae0af6fadf5ea2686ec2a6334b7dd2c87e1ae665453f1', 1, 2, NULL, '[]', 0, '2021-12-31 06:29:33', '2021-12-31 06:29:33', '2022-12-31 12:29:33'),
 ('7c0151b3cda3562fcbb2795e00a2324b7de9d51af8378f77faa792972f931ddb204eed8030dc85e9', 4, 2, NULL, '[]', 0, '2022-01-25 10:49:13', '2022-01-25 10:49:13', '2023-01-25 16:49:13'),
+('7f333e9baa89c248e7e5dece8e75d770c4ec43d31c91a455c5f3a55f2fc108391cb27dfcf69d8ddf', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:38:01', '2022-02-17 10:38:01', '2023-02-17 16:38:01'),
 ('81d41e15ff69ea35119a93414030042b571ce1c6d830e0a910645710ed0e6ba8b999524f25fa326f', 4, 2, NULL, '[]', 0, '2022-01-26 11:37:17', '2022-01-26 11:37:17', '2023-01-26 17:37:17'),
 ('836660e7ec5fda068ff6e660dbf0a92299c89a27c5f862d897c42c9954fd8a5aac114144406a0e8f', 4, 2, NULL, '[]', 0, '2022-01-20 22:57:24', '2022-01-20 22:57:24', '2023-01-21 04:57:24'),
 ('85fa63b97b9551eaa6a4923a8a1cdbb5ca2566b2a07b638f57beb41d5b8d2eadbf7cb6148c61b6fd', 1, 2, NULL, '[]', 0, '2021-12-30 23:21:22', '2021-12-30 23:21:22', '2022-12-31 05:21:22'),
+('8635a86b1747f898c2c1fd403e015d72e7faa02b863ae1f6705531def9e9edbbd4e6695eac333281', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 11:31:23', '2022-02-17 11:31:23', '2023-02-17 17:31:23'),
 ('873563f2f339f78b7a73cad05c0d3ebf1589393bcf421b60f312f93dbb3b0740c884ea9173f25a24', 1, 2, NULL, '[]', 0, '2022-01-15 09:03:32', '2022-01-15 09:03:32', '2023-01-15 15:03:32'),
 ('877c9777a42c1d7588f1e47b1e804d2325047e5e828c968ebb1dc44dc96d55899a334674b5d93c9e', 1, 2, NULL, '[]', 0, '2021-12-30 11:05:34', '2021-12-30 11:05:34', '2022-12-30 17:05:34'),
 ('8bbc3d28c678554d591b462b615ee9483e1fdd6a98d19a30f69b30a82ca2048a5e44936166d5b1a7', 1, 2, NULL, '[]', 0, '2021-12-30 11:09:13', '2021-12-30 11:09:13', '2022-12-30 17:09:13'),
 ('8bde092099916b9fe23467c20ddf26518f75746c3cd818e5351fc0259ed1ab64ab3ad2f237631919', 4, 2, NULL, '[]', 0, '2022-01-26 09:58:30', '2022-01-26 09:58:30', '2023-01-26 15:58:30'),
+('8cc80fb4b8d928bcd7e53d07c09dfc6657dda63d4a16b0dcc9633d1be27f4ff15bcec22bb0cd1cd1', 4, 2, NULL, '[]', 0, '2022-02-21 10:31:08', '2022-02-21 10:31:08', '2023-02-21 16:31:08'),
+('8f0eea9ab8ce8e546998200ee6671337a573d4279b66293eb36be063fbf8916c384481aab7129249', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 11:34:47', '2022-02-17 11:34:47', '2023-02-17 17:34:47'),
 ('8fa5d04c9287827a2e3cb5088d41f827052fc913942f08ffcb3ac38baae84522b33831a871f1ba1a', 1, 2, NULL, '[]', 0, '2021-12-30 23:19:30', '2021-12-30 23:19:30', '2022-12-31 05:19:30'),
+('94409984e15647f07799eeb2acbd883b68d970d7c662859761e05f19c493cd257efe69cac105dc04', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:39:31', '2022-02-17 10:39:31', '2023-02-17 16:39:31'),
 ('98802da376f0e1da61b53c4c5286e1dcbb63e8944b7c2549736e66cebcfdc89c2c21763e48c42fcd', 4, 2, NULL, '[]', 0, '2022-01-20 18:36:33', '2022-01-20 18:36:33', '2023-01-21 00:36:33'),
+('99de717013cf7a313bcdf6c8767aacc3802750f83b125aa5a6ce95459e7d179858aae79fc45babc3', 1, 2, NULL, '[]', 0, '2022-02-20 09:30:20', '2022-02-20 09:30:20', '2023-02-20 15:30:20'),
+('9bc79ff1443548cc402bffa43fa6ab9f5b466fa6f13ef5106fc3bcba6f2214bd2d5d3503ac022c4b', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:39:49', '2022-02-17 10:39:49', '2023-02-17 16:39:49'),
 ('9d684f8a27c97029a06eafe6ff5b6c0cf30eb98cb171c4c4e1ccc4b736e680fa027853e6777fe605', 1, 2, NULL, '[]', 0, '2021-12-31 06:30:33', '2021-12-31 06:30:33', '2022-12-31 12:30:33'),
 ('a2c219050b2179daa22555e5c0dc080bf4e00ab5d373306d7ef19df66d9ae6442b02a52cfaa2f584', 4, 2, NULL, '[]', 0, '2022-01-20 18:35:28', '2022-01-20 18:35:28', '2023-01-21 00:35:28'),
 ('b0774fc8b9ef03deab40e812b788986c9606988faf5e0cea97314c6016c90ca170ad709ca9de8200', 1, 2, NULL, '[]', 0, '2021-12-27 10:14:46', '2021-12-27 10:14:46', '2022-12-27 16:14:46'),
 ('b6655dc52b15d02ab9957061ee9a7711cfb7ecf51b35090888f3a4d675f78ff4dc13d92dddb664b1', 1, 2, NULL, '[]', 0, '2021-12-27 10:29:23', '2021-12-27 10:29:23', '2022-12-27 16:29:23'),
+('be293a54aad0f1e836eee316ff04d3bf20f8ca9ffa5e521b311f7cb65956a26a0011ec108bc7d79b', 1, 2, NULL, '[]', 0, '2022-02-19 10:55:21', '2022-02-19 10:55:21', '2023-02-19 16:55:21'),
 ('bea7561f321c65946b0ae53d4a04f6e40fa4f2fa378c814ca9e27c95c77c60e094d2f88f06b0dfba', 4, 2, NULL, '[]', 0, '2022-01-20 17:39:35', '2022-01-20 17:39:35', '2023-01-20 23:39:35'),
 ('c9990c5c78d30b461e2bb72e3492bbf5c3afd0b4bb1af550c978f616ab3e33a9d93b2d3fef81dbe0', 1, 2, NULL, '[]', 0, '2021-12-30 11:07:16', '2021-12-30 11:07:16', '2022-12-30 17:07:16'),
 ('cea4bf4deb14d5000b73f36fbea485d539dcc419f75126694909411096a2ea4ebba3640479f0648b', 1, 2, NULL, '[]', 0, '2021-12-29 12:08:06', '2021-12-29 12:08:06', '2022-12-29 18:08:06'),
@@ -179,6 +193,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('f794d92b5cae9868695756bfdbd192d0d3d512c79021faef3b826553b95e94484793bc9162d1f976', 1, 2, NULL, '[]', 0, '2021-12-31 06:40:09', '2021-12-31 06:40:09', '2022-12-31 12:40:09'),
 ('f82d2790db3af8cd0ecea287679bc3d5130147ba0d417461f3ea6ddc82e3463743b101ac79f450ce', 1, 2, NULL, '[]', 0, '2021-12-31 06:28:19', '2021-12-31 06:28:19', '2022-12-31 12:28:19'),
 ('fa2cf2e99cca5e13c10f588ac2b16b6b2c8e6f22d7e82e13e67dd950ce4cc163d11c738379e6ee4a', 4, 2, NULL, '[]', 0, '2022-01-20 18:44:54', '2022-01-20 18:44:54', '2023-01-21 00:44:54'),
+('fb0efcfe260774ef651a287b52ea908a38999c586848eaa17b111eb785adbec7ce1562605f355476', 1, 1, 'Laravel Password Grant Client', '[]', 0, '2022-02-17 10:43:27', '2022-02-17 10:43:27', '2023-02-17 16:43:27'),
 ('ff40a27c0e11723b325a7bc5b450585097c1bc10631435501a585f94a75eca0f8b454c07d23760a0', 1, 2, NULL, '[]', 0, '2021-12-31 06:29:55', '2021-12-31 06:29:55', '2022-12-31 12:29:55');
 
 -- --------------------------------------------------------
@@ -290,7 +305,10 @@ INSERT INTO `oauth_refresh_tokens` (`id`, `access_token_id`, `revoked`, `expires
 ('84202629db3a4181a6ec7fda01d6713645c8635ba644e7a3919e5cc4ca9c3a46c817916888dc5ba9', '4b4e72eb23da8bf09e7a62db764ae0121482f67c29f641d38e0e455ee6cf4eace8559c726457e4e4', 0, '2022-12-30 17:06:59'),
 ('85a450dea86fdda8c3c83c20fdee7c417ba5a298793fa1f247310df5e7c20de5744903e9703b2841', '85fa63b97b9551eaa6a4923a8a1cdbb5ca2566b2a07b638f57beb41d5b8d2eadbf7cb6148c61b6fd', 0, '2022-12-31 05:21:22'),
 ('87b8633201b9d972651d90189c408b4c0e12d250fd45bef1231aad51685e4ac3f237c55c0816da3e', '836660e7ec5fda068ff6e660dbf0a92299c89a27c5f862d897c42c9954fd8a5aac114144406a0e8f', 0, '2023-01-21 04:57:24'),
+('89174720453ec7402b51ad50ed57985155164110bc12974f9c76701e441e7f7ee7222ed9b2060758', '8cc80fb4b8d928bcd7e53d07c09dfc6657dda63d4a16b0dcc9633d1be27f4ff15bcec22bb0cd1cd1', 0, '2023-02-21 16:31:08'),
 ('8c2e4170a1fd106ac6cbf484e891e304a47885ee4bed4f67ff64d4efed31793fb0a2ee94745d52f7', 'f107464776524f0fee8e9064295c2ee9537f133dc26b0b4187e423e95cecec567a45496575deb57e', 0, '2023-01-28 16:20:54'),
+('8fb481b1eb52866c00e10c2e22e7007f47e969afabbe126643a9391d162b885baad039364eebb519', 'be293a54aad0f1e836eee316ff04d3bf20f8ca9ffa5e521b311f7cb65956a26a0011ec108bc7d79b', 0, '2023-02-19 16:55:21'),
+('902477a371108e3e7af580f13e7daccdfdcd04ed0227e5032c1c45f802e864022287a9c0f1ad1704', '99de717013cf7a313bcdf6c8767aacc3802750f83b125aa5a6ce95459e7d179858aae79fc45babc3', 0, '2023-02-20 15:30:20'),
 ('92f523093dc51042fc4c43196e90a659440ac3922735b6ea98689446ddf25121074d9c402aab047f', '11656d93fa66ed5cdfa48f28830aa61273db8270272b4f9d95dc247d91f970268ef947d20d417f39', 0, '2023-01-29 16:04:36'),
 ('94d7d8ee7bbb33b88d99fc2a44d1daad9155c0011caf5e53f142cb1507df292dbc34ad7a2062d800', 'cea4bf4deb14d5000b73f36fbea485d539dcc419f75126694909411096a2ea4ebba3640479f0648b', 0, '2022-12-29 18:08:06'),
 ('95ad7b01aa8ad3805eebfc647ed689d2744daf86a3a643fb4bd1c6f2cce88cd6a8a602b81b26fe85', '062a1efd2d2d621684c9c48491e66403107d967f92e2f4b819af5c7f202442dfa4ec178f8f137fa4', 0, '2023-01-21 04:49:34'),
@@ -487,7 +505,7 @@ INSERT INTO `product_categories` (`id`, `name`, `image`, `created_at`, `updated_
 (7, 'Air plan', 'Air plan_650424940.jpeg', '2022-01-02 09:20:26', '2022-01-02 09:20:26'),
 (10, 'AC', 'AC_722705621.jpeg', '2022-01-03 11:05:55', '2022-01-03 11:05:55'),
 (11, 'Table', 'Table_183668310.png', '2022-01-03 11:06:20', '2022-01-03 11:06:20'),
-(12, 'Car', 'Car_241774517.png', '2022-01-07 00:27:21', '2022-01-07 00:27:21');
+(12, 'Carr', 'Car_241774517.png', '2022-01-07 00:27:21', '2022-02-20 10:17:21');
 
 -- --------------------------------------------------------
 
@@ -638,6 +656,7 @@ INSERT INTO `status` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
+  `secure_login` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `firstname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lastname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -660,10 +679,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `password`, `image`, `phone_no`, `userStatusId`, `ip_address`, `present_address`, `shipping_address`, `email_verified_at`, `user_role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Nuruzzaman', 'Himel', 'himel147', 'nuruzzaman.himel147@gmail.com', '$2y$10$54wAdEF6MYF2wPpoE1oXveAEqcLGiw7SR0Ysysa2T7SMWkBSgwmG6', 'himel.jpg', '01622819929', 1, '192.168.0.1', 'dd', 'dd', NULL, 1, NULL, '2021-12-26 12:23:20', '2021-12-26 12:23:20'),
-(3, 'Nuruzzaman', 'himel', 'Nuruzzaman588', 'himel@gmail.com', '$2y$10$YCEXOIh2YeR9yDgOt1JhwOEpmOikWZHAfyAUNwskT9uYolq3WSkBG', 'Nuruzzaman_407184838.jpeg', '01622819929', 1, '127.0.0.1', 'dhaka', 'dostala, south bonosry,dhaka', NULL, 2, NULL, '2022-01-20 10:53:53', '2022-01-20 10:53:53'),
-(4, 'Nuruzzaman', 'tomal', 'Nuruzzaman140', 'n.himel143@gmail.com', '$2y$10$IXtyyPWN.HBe3PPSziLZ3u3rmZYhq.TNc18pdHDdUlGckm288U22m', 'Nuruzzaman_2095255242.jpeg', '01622819929', 1, '127.0.0.1', 'dhaka', 'south bonosri, dhaka', NULL, 2, NULL, '2022-01-20 17:35:24', '2022-01-30 10:17:02');
+INSERT INTO `users` (`id`, `secure_login`, `firstname`, `lastname`, `username`, `email`, `password`, `image`, `phone_no`, `userStatusId`, `ip_address`, `present_address`, `shipping_address`, `email_verified_at`, `user_role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'BPvubGrQxq', 'Nuruzzaman', 'Himel', 'himel147', 'nuruzzaman.himel147@gmail.com', '$2y$10$54wAdEF6MYF2wPpoE1oXveAEqcLGiw7SR0Ysysa2T7SMWkBSgwmG6', 'himel.jpg', '01622819929', 1, '192.168.0.1', 'dd', 'dd', NULL, 1, NULL, '2021-12-26 12:23:20', '2022-02-17 12:20:51'),
+(3, NULL, 'Nuruzzaman', 'himel', 'Nuruzzaman588', 'himel@gmail.com', '$2y$10$YCEXOIh2YeR9yDgOt1JhwOEpmOikWZHAfyAUNwskT9uYolq3WSkBG', 'Nuruzzaman_407184838.jpeg', '01622819929', 1, '127.0.0.1', 'dhaka', 'dostala, south bonosry,dhaka', NULL, 2, NULL, '2022-01-20 10:53:53', '2022-01-20 10:53:53'),
+(4, NULL, 'Nuruzzaman', 'tomal', 'Nuruzzaman140', 'n.himel143@gmail.com', '$2y$10$IXtyyPWN.HBe3PPSziLZ3u3rmZYhq.TNc18pdHDdUlGckm288U22m', 'Nuruzzaman_2095255242.jpeg', '01622819929', 1, '127.0.0.1', 'dhaka', 'south bonosri, dhaka', NULL, 2, NULL, '2022-01-20 17:35:24', '2022-01-30 10:17:02');
 
 -- --------------------------------------------------------
 
