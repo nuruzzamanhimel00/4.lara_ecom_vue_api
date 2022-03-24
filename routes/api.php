@@ -17,65 +17,36 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-
-
-Route::group(['prefix'=>'admin','namespace'=>"Admin\Api\Auth"], function(){
-
-    Route::post('login', 'LoginController@login')->name('admin.login');
-    Route::post('access-token', 'LoginController@accessToken')->name('admin.access.token');
 
 });
-Route::group(['prefix'=>'admin','namespace'=>"Admin\Api"], function(){
 
-    // Product
-    Route::apiResource('product', 'ProductController');
-    Route::apiResource('category', 'CategoryController');
-    Route::apiResource('brand', 'BrandController');
 
-    Route::apiResource('slider', 'SliderController');
 
-    Route::get('product-status', 'ProductController@getProductStatus');
-    Route::get('products', 'ProductController@getAllProducts');
-    Route::get('slider-lastprority', 'SliderController@lastprority');
-    Route::get('slider-status', 'SliderController@sliderStatus');
 
-    Route::get('category-withproductcount', 'CategoryController@catWithProductCount');
-    Route::get('brand-withProductCount', 'BrandController@barndWithProductCount');
+// Route::get('store', 'Fontend\Api\ShortnerUrlController@store');
 
-});
+
+
+Route::resource('photos', 'TestCOntroller');
+
 Route::group(['prefix'=>'/','namespace'=>"Fontend\Api"], function(){
 
-    Route::apiResource('slider', 'SliderController');
-    Route::apiResource('product', 'ProductController');
-    Route::get('products-paginate', 'ProductController@getAllProductsPaginate');
-
-    Route::get('products-show/{slug}', 'ProductController@productShow');
-    Route::post('products-search', 'ProductController@productSearch');
-
-    //brand
-    Route::get('brand/{brandid}', 'BrandController@brandByBrandid');
-    Route::get('brnadsProducts/{brandid}', 'BrandController@getBrandsProducts');
-    //category
-    Route::get('category/{catid}', 'CategoryController@getCetegoryByCatid');
-    Route::get('categoryProducts/{catid}', 'CategoryController@getCategoryWiseProducts');
+    // ########### Shortner URL ##############
 
     //auth
     Route::post('registration', 'Auth\AuthController@registration');
     Route::post('login', 'Auth\AuthController@login');
     Route::post('access-token', 'Auth\AuthController@accessToken');
-    // fontend user profile
-    Route::post('profile-update', 'UserProfileController@userProfileUpdate');
-    Route::post('change-password', 'UserProfileController@userChangePassword');
-    //fontend cart
-    Route::post('add-cart', 'CartController@addCart');
-    Route::post('fetch-cart', 'CartController@fetchCart');
-    Route::post('update-cart-quantity', 'CartController@updateCartQuantity');
-    Route::get('delete-cart/{id}', 'CartController@deleteCart');
-    Route::get('fetch-site-setting', 'CartController@fetchSiteSetting');
-    Route::get('payment-modes', 'CartController@paymentModes');
-    Route::post('order-submit', 'CartController@orderSubmit');
+
+    //authonticate route must be seperated
+
+    Route::post('/generate-shorten-link', 'ShortnerUrlController@store');
+    Route::post('/get-shorten-link', 'ShortnerUrlController@index');
+    Route::post('/show-link/{id}', 'ShortnerUrlController@show');
+    Route::put('/update-link/{id}/user/{userid}', 'ShortnerUrlController@update');
+    Route::delete('/delete-link/{id}/user/{userid}', 'ShortnerUrlController@destroy');
+
+
 
 });
 
