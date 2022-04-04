@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::get('{code}', 'ShortnerUrlController@shortenLink')->name('shorten.link');
+
 Auth::routes();
 
-// ### response send and website login ####
-Route::get('/website-login', 'Auth\ApiAuthController@login')->name('website.login');
-Route::get('/secure-login', 'Auth\ApiAuthController@secureLogin')->name('secure.login');
 
-Route::get('/home', 'HomeController@index')->name('home');

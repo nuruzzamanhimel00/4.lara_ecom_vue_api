@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Fontend\Api\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\SiteSetting;
 use Illuminate\Support\Facades\Hash;
 use Image;
 use GuzzleHttp\Client;
@@ -21,7 +20,6 @@ class AuthController extends Controller
             'image' => 'required',
             'phone_no' => 'required',
             'present_address' => 'required',
-            'shipping_address' => 'required',
         ]);
 
         $image = $request->input('image');
@@ -29,7 +27,6 @@ class AuthController extends Controller
         $strpos = strpos($image,';');
         $substr = substr($image,0,$strpos);
         $image_ext = substr(strrchr($substr,'/'),1);
-
 
         $imagename = $request->firstname."_".rand().".".$image_ext;
         $image_save = public_path('image/fontend/user/'.$imagename);
@@ -51,8 +48,6 @@ class AuthController extends Controller
                 'userStatusId' => 1, // active
                 'ip_address'=>$request->ip(),
                 'present_address' => $request->present_address,
-                'shipping_address' => $request->shipping_address,
-                'user_role' => 2, // 1=admin,2=user
 
             ]);
             if(isset($createuser)){
@@ -74,33 +69,24 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $siteSetting = SiteSetting::first();
-        $user = User::where('email',$request->email)->where('user_role',User::USER_ROLE_USER)
+        $user = User::where('email',$request->email)
         ->where('userStatusId',User::USER_ACTIVE)->first();
 
         if(isset($user)){
             if(Hash::check($request->password,$user->password)){
 
-                $http = new Client();
-
-                $response = $http->post(url("oauth/token"), [
-                    'form_params' => [
-                        'grant_type' => 'password',
-                        'client_id' => $siteSetting->client_id,
-                        'client_secret' => $siteSetting->client_secret,
-                        'username' => $request->email,
-                        'password' => $request->password,
-                        'scope' => '',
-                    ],
-                ]);
-
-                // return json_decode((string) $response->getBody(), true);
-
+                $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+                // return ($token);
                 return response()->json([
+                        'status' => "success",
+                        'token' => $token,
+                        'userid' => $user->id
+                    ],200);
 
-                    'status' => "success",
-                    'data' => json_decode((string) $response->getBody(), true)
-                ]);
+            }
+            else {
+                $response = ["message" => "Password mismatch"];
+                return response($response, 422);
             }
         }else{
             return response()->json([
@@ -126,7 +112,6 @@ class AuthController extends Controller
         ]);
 
         return response()->json([
-
             'status' => "success",
             'data' => json_decode((string) $response->getBody(), true)
         ]);
